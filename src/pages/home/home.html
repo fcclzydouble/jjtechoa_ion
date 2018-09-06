@@ -1,0 +1,81 @@
+<ion-header>
+  
+      
+      
+     <ion-toolbar >
+       
+        <ion-segment [(ngModel)]="doingtype" color="danger" >
+            <ion-segment-button value="gw">
+              待办事项
+            </ion-segment-button>
+            <ion-segment-button value="tz">
+              通知消息
+            </ion-segment-button>
+            <ion-segment-button value="xf">
+              新闻中心
+            </ion-segment-button>
+          </ion-segment>
+     </ion-toolbar>
+  
+</ion-header>
+
+<ion-content padding="false" style="border:0px">
+        <ion-refresher (ionRefresh)="doRefreshgw($event)"> 
+              <ion-refresher-content
+                  pullingIcon="arrow-dropdown"
+                  pullingText="下拉刷新"
+                  refreshingSpinner="circles"
+                  refreshingText="刷新..."> 
+              </ion-refresher-content>
+              <ion-refresher-content > 
+          </ion-refresher-content>
+        </ion-refresher>
+
+        <div [ngSwitch]="doingtype" class="list-home-page">
+
+        <ion-list *ngSwitchCase="'gw'" inset>
+            <ion-item style="padding-left:0px;padding-top:0px;" *ngFor="let gwitem of dbgwlist">
+                <ion-thumbnail item-start>
+                  <img src="../.././assets/imgs/docicon.png">
+                </ion-thumbnail>
+                <h2 style="margin-top:0px;">{{gwitem.bizInstName}}</h2>
+                <p>{{gwitem.itemTime}}</p>
+                <p>{{gwitem.nodeName}}</p>
+                <ion-note item-end></ion-note>
+                <ion-icon item-end name="arrow-dropright"></ion-icon>
+            </ion-item>
+            
+        </ion-list>
+
+        <ion-list *ngSwitchCase="'tz'" inset>
+            <ion-item style="padding-left:0px;padding-top:0px;">
+              <ion-thumbnail item-start>
+                <img src="../.././assets/imgs/tzicon.jpg">
+              </ion-thumbnail>
+              <h2 style="margin-top:0px;">测试20180711_1文本域控制</h2>
+              <p>2018-07-11 11:07:23</p>
+              <p>经办人正式发文</p>
+              <ion-note item-end></ion-note>
+              <ion-icon item-end name="arrow-dropright"></ion-icon>
+          </ion-item>
+        </ion-list>
+
+        <ion-list *ngSwitchCase="'xf'" inset>
+            <ion-item>
+                <ion-thumbnail item-start>
+                  <img src="../.././assets/imgs/xxicon.jpg">
+                </ion-thumbnail>
+                <h2>Daffy</h2>
+              </ion-item>
+        </ion-list>
+     </div>
+
+     <!--下滑的时候，加载数据-->
+     <ion-infinite-scroll (ionInfinite)="doInfinite($event)"> 
+        <ion-infinite-scroll-content
+         loadingSpinner="bubbles"
+         loadingText="加载中..."> 
+         </ion-infinite-scroll-content> 
+     </ion-infinite-scroll>
+   
+</ion-content>

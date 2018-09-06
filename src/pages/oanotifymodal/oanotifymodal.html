@@ -1,0 +1,69 @@
+<!--
+  Generated template for the OanotifymodalPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="danger">
+    <ion-title>消息通知</ion-title>
+    <ion-buttons end>
+        <button ion-button icon-only (click)="save()">
+          <ion-icon name="redo"></ion-icon> 提交
+        </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+      <ion-item class="item-text-wrap">
+          <ion-label>标题</ion-label>
+          <ion-input type="text" [(ngModel)]="notify.nTitle"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>通知类型</ion-label>
+        <ion-select [(ngModel)]="notify.nType" (ngModelChange)="selectType(notify.nType)" okText="确定" cancelText="取消">
+            <ion-option *ngFor="let type of listType"  ng-selected="type.code == notify.nType" [value]="type.code">{{type.value}}</ion-option>      
+        </ion-select>
+      </ion-item>
+  </ion-list>
+  <ion-list  [ngStyle]="{'display': isDisplay === true ? 'none' : 'block' }">
+      <ion-item>
+          <ion-label>会议名称</ion-label>
+          <ion-select [(ngModel)]="notify.meetId" (ngModelChange)="selectMeet(notify.meetId)" okText="确定" cancelText="取消">
+              <ion-option *ngFor="let meet of listMeet"  ng-selected="meet.meetId == notify.meetId" [value]="meet.meetId">{{meet.meetTitle}}</ion-option>      
+          </ion-select>
+      </ion-item>
+      <ion-item>
+          <ion-label>会议时间</ion-label>
+          <ion-input type="text" [value]="meetTime" readonly></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label>会议地点</ion-label>
+          <ion-input type="text" [value] = "meetAddress" readonly></ion-input>
+      </ion-item>
+  </ion-list>
+  <ion-list>
+      <ion-item>
+          <ion-label>接收人</ion-label>
+            <ion-select [(ngModel)]="receivedByName" multiple="true" okText="确定" cancelText="取消">
+              <ion-option *ngFor="let received of listReceived" 
+                            [value]="received.username" 
+                            [selected]="isSelected(received.username)" 
+                            [disabled]="isDisabled">
+                    {{received.username}}
+              </ion-option>      
+          </ion-select>
+      </ion-item>
+  </ion-list>
+  <ion-list>
+      <ion-list-header>
+          会议内容
+        </ion-list-header>
+      <ion-textarea style="height: 20rem; border: 0.1rem solid rgb(221, 221, 221);" type="text" [(ngModel)]="notify.nContent"></ion-textarea>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,38 @@
+<ion-menu [content]="content" side="left" type="push" swipeEnabled="false">
+        
+      
+        <ion-content>
+            <ion-toolbar >
+                        <div style="text-align:center">设置窗口</div>
+            </ion-toolbar>
+            
+            <div class="menu-list">
+                <!-- no-lines：取消list的默认线条 -->
+                <ion-list no-lines>
+                  <button menuClose="left" ion-item *ngFor="let p of pages;let i=index" (tap)="openPage(p)">
+                    <ion-icon name="{{p.icon}}" item-left class="iconColor"></ion-icon>
+                    {{p.title}}
+                  </button>
+                </ion-list>
+            </div>
+             <!--footer： 是这个菜单页面的底部也可以省略 -->
+            <ion-footer>
+                <div class="menu-footer">
+                    <ion-grid>
+                      <ion-row >
+                        <ion-col col-4 *ngFor="let f of footerBtn">
+                        <button ion-button clear (click)="oaset(f)">
+                            <ion-icon name="{{f.icon}}" item-left class="iconColor" ></ion-icon> 
+                            {{f.title}}
+                        </button>
+                        </ion-col>
+                      </ion-row>
+                    </ion-grid>
+                  </div>
+            </ion-footer>
+          
+        </ion-content>
+      
+</ion-menu>
+
+<ion-nav [root]="rootPage" #content></ion-nav>

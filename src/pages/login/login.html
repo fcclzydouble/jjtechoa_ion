@@ -1,0 +1,47 @@
+<!--
+  Generated template for the LoginPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+
+
+<ion-content padding="false" class="page-login">
+      <div style="text-align:center;padding:10px;">
+          
+              <span style="color:#ACACAC;font-size:20px;font-weight:bold">移动办公登录窗口</span>
+         
+        
+      </div>
+        <div style="text-align:center;">
+            <ion-img style="width: 200px; height: 200px;" src="assets/imgs/tclogo.png"></ion-img>
+        </div>
+    
+        
+            <ion-list inset>
+                <div ion-item>
+                  <ion-label fixed>账户:</ion-label>
+                  <ion-input type="text" [(ngModel)]='userinfo.username' placeholder='请输入账户'></ion-input>
+                </div>
+          
+                <div ion-item>
+                    <ion-label fixed>密码:</ion-label>
+                    <ion-input type="password"  [(ngModel)]='userinfo.password' placeholder='请输入密码'></ion-input>
+                 </div>
+        
+                 <ion-item no-lines class="list_end">
+                    <span item-start>
+                      
+                    </span>
+                 </ion-item>
+           </ion-list>
+        
+           <button ion-button block color="danger" class="login_btn" (tap)="doLogin()">登录</button>
+        
+        
+      
+
+    
+
+</ion-content>

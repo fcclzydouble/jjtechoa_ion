@@ -1,0 +1,68 @@
+<!--
+  Generated template for the OaexcutingPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="danger">
+    <ion-title >{{nodeName}}</ion-title>
+    <ion-buttons end>
+        <button ion-button color="light" clear (click)="wfSend('1')">
+            <ion-icon name="redo"></ion-icon>
+           提交
+        </button>
+      </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding="false" > 
+    <ion-toolbar>
+        <ion-title>{{formextValueRepresentationMobile.bizDocTitile}}</ion-title>
+        
+    </ion-toolbar>
+   <div style="border:2 solid #ff0000"> 
+      <ion-list list-inset>
+          <ion-item *ngIf="bizattachzw.id!='-1'" detail-push (click)="doneBizAttachZW(bizattachzw)" style="padding-left:0px;padding-top:0px;">
+            <ion-thumbnail item-start>
+              <img src="assets/imgs/zwicon1.png">
+            </ion-thumbnail>
+            <h2 style="padding-top:5px;">正文：{{bizattachzw.attachName}}</h2>
+           </ion-item>
+          
+          <ion-item *ngFor="let key of getKeys(bizData)">
+             
+              <ion-label>{{formextValueRepresentationMobile.bizData[key].title}}：</ion-label>
+              <ion-input type="text" [(ngModel)]="formextValueRepresentationMobile.bizData[key].value" readonly="{{formextValueRepresentationMobile.bizData[key].canEdit=='0'}}"></ion-input>
+             
+
+            
+                  
+             
+          </ion-item>
+         <div *ngFor="let spkey of getKeys(spData)">
+            <ion-item >
+               
+                  <div style="margin-bottom:5px;">{{spData[spkey] | spitemTitle}}：</div>
+                  <div *ngFor="let spitem of spData[spkey];let indx=index" style="margin-top:5px;margin-left:5px;padding-top:0px;">
+                    <div *ngIf="spitem.canEdit==0 && spitem.nodeInstId!='-1'"  style="color:brown;font-size:14px;">{{spitem.value}} [{{spitem.userName}} 于 {{spitem.spDate}} 审批]</div>
+                    <div *ngIf="spitem.canEdit==0 && spitem.nodeInstId=='-1'"  style="height:40px;"></div>
+                    <div *ngIf="spitem.canEdit==1"  style="padding-top:5px;">
+                          <textarea autoresize [(ngModel)]="spitem.value" style="width:90%;height:60px;"></textarea>
+                    </div>
+
+                  
+                  </div> 
+               </ion-item>
+            
+         </div>
+          
+          
+        </ion-list>
+
+   </div>
+   
+</ion-content>

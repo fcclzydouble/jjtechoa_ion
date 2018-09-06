@@ -1,0 +1,7 @@
+{
+  "name": "jjtechoa_ion",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

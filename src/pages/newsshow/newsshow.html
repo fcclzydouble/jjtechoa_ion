@@ -1,0 +1,22 @@
+<!--
+  Generated template for the NewsDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+        <ion-navbar color="danger">
+          <ion-title>新闻内容</ion-title>
+        </ion-navbar>
+      
+</ion-header>
+      
+<ion-content padding>
+    <div class="titlef"><h4>{{title}}</h4></div>
+    <div class="time"><h6>{{time}}</h6></div>
+    <div *ngIf="img != ''">
+        <img src="{{img}}">
+    </div>
+    <div class="" [innerHTML]="content"></div>
+</ion-content>

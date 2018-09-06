@@ -1,0 +1,233 @@
+page-news {
+    img {
+        width:50px;
+        height: 50px;
+      }
+      .item:hover{
+        
+            background: #F5F5F4;
+        } 
+
+        body, .ionic-body{font-family: 微软雅黑, Arial, Helvetica, sans-serif;}
+
+        .bar .sub_header_list .button.button-clear{
+          margin-left: 4px;
+          border-bottom: 1px solid #ddd;
+        }
+        
+        .sub_header_list .button{
+          width: 50%;
+          color:#666;
+          margin-left: 4px;
+        }
+        .bar .sub_header_list .button.sub_button_select{
+          border-bottom:2px solid #387ef5;
+          position:relative;
+        }
+        .button-bar{width:100%;display: inline;white-space: nowrap;overflow-x:scroll;float:left;overflow-y:hidden}
+        .bar-subheader{
+          border-bottom: none;
+          background: #fffefe;
+        }
+        
+        .sub_header_catgorylist .button{
+          width: 25%;
+          color:#424141;
+          font-size: 14px;
+        }
+        
+        .sub_header_catgorylist .activebutton{
+          color:#ff3b30;
+          font-size: 14px;
+          border-bottom: 2px solid #ff3b30;
+        }
+        
+        /*搜索框6*/
+        .bar6 input {
+            border: 1px solid #f53d3d;
+            border-radius: 15px 15px 15px 15px;;
+            background: transparent;
+            top: 0;
+            right: 0;
+            height: 27px;
+            margin-right: 0px;
+            margin-top: 6px;
+            margin-bottom: 6px;
+            padding-left: 10px;
+            width: 90%;
+        }
+        .bar6 button {
+            background: #f53d3d;
+            border-radius: 0 15px 15px 0;
+            width: 12%;
+            top: 0;
+            right: 0;
+            height: 26px;
+            margin-left: -12%;
+            margin-top: 6px;
+        }
+        .bar6 button:before {
+            content: "搜索";
+            font-size: 13px;
+            color: #F9F0DA;
+        }    
+        input::-webkit-input-placeholder {
+          /* placeholder颜色  */
+            color: #ced2d6;
+          /* placeholder字体大小  */
+            font-size: 14px;
+        }
+ /*.header-md::after, .tabs-md[tabsPlacement="top"] >
+   .tabbar::after, .footer-md::before, .tabs-md[tabsPlacement="bottom"] > .tabbar::before{
+     background-image: none;*/
+
+     .item {
+      position: relative;
+      width: 100%;
+      height: 110px;
+      h2 {
+        position: absolute;
+        display: inline;
+        width: 60%;
+        font-size: 16px;
+        top: 12px;
+        left: 10px;
+        white-space: normal;
+      }
+      h3 {
+        position: absolute;
+        display: inline;
+        width: 100%;
+        font-size: 16px;
+        top: 12px;
+        left: 10px;
+        white-space: normal;
+      }
+      span {
+
+        position: absolute;
+
+        font-size: 12px;
+        color: gray;
+        bottom: 20px;
+
+      }
+      .date {
+        left: 17px;
+        bottom: 2px;
+      }
+      .box {
+        position: absolute;
+
+        left: 65%;
+        top: 12px;
+        img {
+          width: 105px;
+          height: 80px;
+        }
+
+      }
+  }
+
+  .item_noimg{
+    position: relative;
+      width: 100%;
+      height: 80px;
+      h2 {
+        position: absolute;
+        display: inline;
+        width: 60%;
+        font-size: 16px;
+        top: -1px;
+        left: 10px;
+        white-space: normal;
+      }
+      h3 {
+        position: absolute;
+        display: inline;
+        width: 100%;
+        font-size: 16px;
+        top: -1px;
+        left: 10px;
+        white-space: normal;
+      }
+      span {
+
+        position: absolute;
+
+        font-size: 12px;
+        color: gray;
+        bottom: 20px;
+
+      }
+      .date {
+        left: 17px;
+      }
+      .box {
+        position: absolute;
+        left: 65%;
+        top: 12px;
+        img {
+          width: 105px;
+          height: 80px;
+        }
+
+      }
+  }
+
+  .item_posid{
+    position: relative;
+    width: 100%;
+    height: 80px;
+    h3 {
+      position: absolute;
+      display: inline;
+      width: 100%;
+      font-size: 16px;
+      top: -1px;
+      left: 10px;
+      white-space: normal;
+    }
+    span {
+      position: absolute;
+      font-size: 12px;
+      color: gray;
+      bottom: 20px;
+    }
+    .date {
+      left: 17px;
+    }
+    .box{
+      img {
+        width: 100%;
+        height: 280px;
+      }
+    }
+  }
+}
+.scroll-content{
+  border-top: 0px solid;
+}
+.list-ios .item-block .item-inner{
+  border-bottom: 0.55px solid #f5f4f7;
+  min-height: 50px;
+  max-height: 400px;
+}
+
+.segment-md .segment-button.activated, .segment-md .segment-button.segment-activated{
+  border-color: #f53d3d;
+  font-weight: bold;
+}
+
+.segment-md .segment-button {
+  color: #f53d3d;
+}
+.segment-button .segment-activated{
+  color: #181515!important;
+}
+.header-ios .toolbar-ios:last-child .toolbar-background-ios{
+  border: 0px solid;
+}
+.toolbar-background{
+  background: #fffefe;
+}

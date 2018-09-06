@@ -1,0 +1,83 @@
+<!--
+  Generated template for the OacalendareventmodalPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="danger">
+    <ion-buttons end>
+      <button ion-button color="light" clear (click)="save()" [ngStyle]="{'display': isFlag === false ? 'none' : 'block' }">
+          <ion-icon name="redo"></ion-icon>
+         提交
+      </button>
+    </ion-buttons>
+    <ion-title>日程</ion-title>
+  </ion-navbar>
+</ion-header>
+ 
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label>日程标题：</ion-label>
+      <ion-input type="text" placeholder="日程标题" [(ngModel)]="schedule.sTitle"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>日程类型：</ion-label>
+      <ion-select cancelText="取消" okText="确定" [(ngModel)]="schedule.sType">
+          <ion-option *ngFor="let type of listType" [selected]="type.code == schedule.sType" [value]="type.code">{{type.value}}</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>开始时间：</ion-label>
+      <ion-datetime displayFormat="YYYY-MM-DD HH:mm" 
+                    pickerFormat="MM DD:HH:mm" 
+                    [(ngModel)]="schedule.sBenTime"
+                    cancelText="取消"
+                    doneText="确定">
+      </ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>结束时间：</ion-label>
+      <ion-datetime displayFormat="YYYY-MM-DD HH:mm" 
+                    pickerFormat="MM DD:HH:mm" 
+                    [(ngModel)]="schedule.sEndTime"
+                    cancelText="取消"
+                    doneText="确定">
+      </ion-datetime>
+    </ion-item>
+
+    <ion-item>
+        <ion-label>提醒方式：</ion-label>
+    </ion-item>
+
+    <ion-item *ngFor="let remType of listRemindType">
+        <ion-label>{{remType.value}}</ion-label>
+        <ion-checkbox (ionChange)="onChange(remType, $event.checked)" [checked]="isChecked(remType.code)"   value="remType.code">
+        </ion-checkbox>
+    </ion-item>
+
+    <ion-item>
+        <ion-label>提醒时间：</ion-label>
+        <ion-input type="text" [(ngModel)]="schedule.remindTime" placeholder="请输入数字"></ion-input>
+        <ion-select cancelText="取消" okText="确定" [(ngModel)]="schedule.remindTimeU">
+          <ion-option value='dd' [selected]="schedule.remindTimeU == 'dd'">分钟前</ion-option>
+          <ion-option value='mm' [selected]="schedule.remindTimeU == 'mm'">小时前</ion-option>
+          <ion-option value='DD' [selected]="schedule.remindTimeU == 'DD'">天前</ion-option>
+          <ion-option value='ZZ' [selected]="schedule.remindTimeU == 'ZZ'">周前</ion-option>
+          <ion-option value='MM' [selected]="schedule.remindTimeU == 'MM'">月前</ion-option>
+        </ion-select>
+    </ion-item>    
+    
+    <ion-item>
+        <ion-label>日程内容：</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-textarea placeholder="日程内容" [ngStyle]="{'height': '20rem'}" [(ngModel)]="schedule.sContent"></ion-textarea>
+    </ion-item>
+  </ion-list>
+ 
+</ion-content>

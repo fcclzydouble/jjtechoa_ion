@@ -1,0 +1,81 @@
+// http://ionicframework.com/docs/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+//自定义
+
+.menu-header{
+    
+
+}
+.user-avatar {
+    padding-top:5%;
+    padding-left:5%;
+  }
+.user-avatar img{
+      width: 27%;
+      height: 27%;
+      border-radius:50%;
+  }
+.myname{
+      padding-left: 8%;
+      font-family: KaiTi;
+      color:#FCF7F7;
+      font-size: 1.2em;
+      display: block;
+      float: left;
+      margin-right: 4%;
+      padding-top:3px;
+  }
+.grade{
+      height: 16px;
+      width: 30px;
+      border: white 1px solid;
+      font-family: KaiTi;
+      font-size: 0.8em;
+      text-align: center;
+      color: white;
+      border-radius:8px;
+      display: block;
+      margin-top:9px;
+      float: left;
+  }
+  .grade1{
+    height: 22px;
+    width: 60px;
+    border: white 1px solid;
+    font-family: KaiTi;
+    font-size: 0.8em;
+    color: white;
+    border-radius: 8px;
+    display: block;
+    float: right;
+    margin-right:5%;
+    margin-top:5px;
+    text-align: center;
+    line-height: 22px;
+}
+.menu-list{
+    padding-top:3%;
+    height: 64%;
+}
+
+.menu-footer button{
+    color: black;
+}
+.iconColor{
+    color: gray;
+}

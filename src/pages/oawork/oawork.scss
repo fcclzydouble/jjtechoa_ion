@@ -1,0 +1,69 @@
+
+*{
+    margin: 0px;
+    padding:0px;
+}
+
+.focus{
+    width:100%;
+    height: 180px;
+
+    img{
+        width:100%;
+        height: 180px;
+    }
+}
+
+.slides-box {
+    border: 2 solid #0E0D0D;
+    margin-top: 1px;
+    padding: 1px;
+}
+
+.oawork_page {
+    .row {
+        .col {
+          
+
+            .apps {
+                
+                
+            
+                .badge_div {
+                    
+                    vertical-align: middle;
+                    text-align: center;
+                     img {
+                         width: 60px;
+                         height: 60px;
+                     }
+             
+                     .badge {
+                         background-color: red;
+                         position:relative;
+                         top: -90px;
+                         right: -20px;
+                         border-radius: 100%;
+                 
+                     }
+            
+                     .hot_detail {
+                        line-height: 30px;
+                        text-align: center;
+                         
+                     }
+             
+                 }
+             }
+
+        }
+    }
+
+
+}
+
+
+
+
+
+

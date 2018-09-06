@@ -1,0 +1,117 @@
+<!--
+  Generated template for the ChatmainPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="danger">
+    <ion-title>在线聊天</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <div class="chat_content">
+        <div class="chat_left">
+            <a (click)="showList(1)">
+              <div class="item">
+                  <ion-icon name="chatboxes" ></ion-icon>
+                  <div class="title">会话</div>
+              </div>
+            </a>
+
+            <a (click)="showList(2)">
+              <div class="item">
+                  <ion-icon name="ios-contact" ></ion-icon>
+                  <div class="title">联系人</div>
+              </div>
+            </a>
+
+              <a (click)="showList(3)">
+              <div class="item">
+                  <ion-icon name="ios-contacts" ></ion-icon>
+                  <div class="title">好友</div>
+              </div>   
+            </a>
+            
+        </div>
+  
+        <div class="chat_right">
+            <div class="conversation" *ngIf="ctype==1">
+                <ion-list>
+                        <ion-list-header >
+                                <ion-icon name="arrow-round-forward"></ion-icon><span style="color:#585858">当前所有会话</span>
+                        </ion-list-header>
+                        <ion-item-sliding *ngFor="let conversationInfo of conversationList">
+                            <ion-item  (click)="enterChat(conversationInfo)">
+                                <ion-avatar *ngIf="conversationInfo.conversationType == 'single'" item-left>
+                                <img src="assets/imgs/tuser.png">
+                                </ion-avatar>
+                                <ion-avatar *ngIf="conversationInfo.conversationType == 'group'" item-left>
+                                        <img src="assets/imgs/group-icon">
+                                    </ion-avatar>
+                                <h2 *ngIf="conversationInfo.conversationType == 'single'">{{ conversationInfo.target.nickname }}</h2>
+                                <h2 *ngIf="conversationInfo.conversationType == 'group'">{{ conversationInfo.target.name }}</h2>
+                                
+                                <div *ngIf="conversationInfo.latestMessage != undefined">
+                                <p *ngIf="conversationInfo.latestMessage.type == 'text'"> {{ conversationInfo.latestMessage.text }}</p>
+                                <p *ngIf="conversationInfo.latestMessage.type == 'voice'"> [语言] </p>
+                                <p *ngIf="conversationInfo.latestMessage.type == 'image'"> [图片] </p>
+                                <p *ngIf="conversationInfo.latestMessage.type == 'file'"> [文件] </p>
+                                </div>
+                        
+                                <ion-badge  *ngIf="conversationInfo.unreadCount > 0" item-end>{{ conversationInfo.unreadCount }}</ion-badge>
+                        </ion-item>
+                        <ion-item-options>
+                                <button ion-button color="danger" icon-start (click)="deleteConversation(conversationInfo)">
+                                        <ion-icon name="trash"></ion-icon>
+                                        删除
+                                </button>
+                        </ion-item-options>
+                    </ion-item-sliding>
+                  </ion-list>
+            </div>
+
+            <div class="contact" *ngIf="ctype==2">
+                <ion-list>
+                    <ion-list-header>
+                            <ion-icon name="arrow-round-forward"></ion-icon><span style="color:#585858">联系人</span>
+                    </ion-list-header>
+                    <ion-item *ngFor="let friend of groupmembers"
+                        (click)="enterUser(friend)">
+                        <ion-avatar item-left>
+                        <img src="assets/imgs/tuser.png">
+                        </ion-avatar>
+                        <h2>{{ friend.nickname }}</h2>
+                    </ion-item>
+            
+                </ion-list>
+            </div>
+
+
+            <div class="contact" *ngIf="ctype==3">
+                    <ion-list>
+                        <ion-list-header>
+                                <ion-icon name="arrow-round-forward"></ion-icon><span style="color:#585858">我的好友</span>
+                        </ion-list-header>
+                        <ion-item *ngFor="let friend of friendList"
+                            (click)="enterUser(friend)">
+                            <ion-avatar item-left>
+                            <img src="assets/imgs/tuser.png">
+                            </ion-avatar>
+                            <h2>{{ friend.nickname }}</h2>
+                        </ion-item>
+                
+                    </ion-list>
+                </div>
+  
+        </div>
+  
+  
+    </div>
+
+</ion-content>

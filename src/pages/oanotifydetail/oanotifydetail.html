@@ -1,0 +1,37 @@
+<!--
+  Generated template for the OanotifydetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="danger">
+      <ion-buttons start>
+          <button ion-button icon-only (click)="dismiss()">
+            <ion-icon name="close"></ion-icon>
+          </button>
+        </ion-buttons>
+    <ion-title>{{notice.nTitle}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item-group>
+    <ion-item-divider color="light"></ion-item-divider>
+    <ion-item>通知内容：</ion-item>
+    <ion-item text-wrap>
+      <p style="font-size: small;">{{notice.nContent}}</p>
+    </ion-item>
+  </ion-item-group>
+  <ion-item-group [ngStyle]="{'display': notice.meetId === null ? 'none' : 'block' }">
+    <ion-item-divider color="light"></ion-item-divider>
+    <ion-item>会议名称：{{notice.meetTitle}}</ion-item>
+    <ion-item>会议时间：{{notice.meetStartDate}} - {{notice.meetEndDate}}</ion-item>
+    <ion-item>会议地点：{{notice.meetAddress}}</ion-item>
+  </ion-item-group>
+  <ion-item-group>
+    <ion-item-divider color="light"></ion-item-divider>
+    <ion-item>发送人：{{notice.sendUName}}</ion-item>
+    <ion-item>发送时间：{{notice.pubDate}}</ion-item>
+  </ion-item-group>
+</ion-content>
